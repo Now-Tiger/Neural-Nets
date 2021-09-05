@@ -35,7 +35,7 @@ Training is stopped when the error made by the model falls to a low level or no 
 The learning rate and number of training epochs are hyperparameters of the algorithm that can be set using heuristics or hyperparameter tuning.
 
 
-# A simple perceptron in python
+# [A simple perceptron in python](https://github.com/Now-Tiger/Neural-Nets/blob/main/Perceptron/perceptron.py)
 
 ``` python
 # ---------------------------------------- Perceptron implementation ----------------------------------------
