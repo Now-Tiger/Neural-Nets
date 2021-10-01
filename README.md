@@ -36,7 +36,7 @@ One of the main reasons behind universal approximation is the activation functio
 Let us first try to understand the difference between an RNN and an ANN from the architecture perspective :
 
 A looping constraint on the hidden layer of ANN turns to RNN.      
-          ![image](https://cdn.analyticsvidhya.com/wp-content/uploads/2020/02/assets_-LvBP1svpACTB1R1x_U4_-LwEQnQw8wHRB6_2zYtG_-LwEZT8zd07mLDuaQZwy_image-1.png)
+          ![image](images/RNN-vs-ANN.jpeg)
           
 As you can see here, RNN has a recurrent connection on the hidden state. This looping constraint ensures that sequential information is captured in the input data.
 
@@ -61,4 +61,4 @@ CNN captures the spatial features from an image. Spatial features refer to the a
 CNN also follows the concept of parameter sharing. A single filter is applied across different parts of an input to produce a feature map.
 
 ## Comparing the Different Types of Neural Networks (MLP(ANN)  vs. RNN vs. CNN)
-![image](https://cdn.analyticsvidhya.com/wp-content/uploads/2020/02/table.png)
+![image](images/table.jpeg)
