@@ -23,23 +23,49 @@ from numpy import exp, dot, random, array
 class NeuralNetwork() :
     def __init__(self) :
         random.seed(2)
+        '''
+            We model a single neuron, with 3 input connections and 1 output connection.
+            We assign random weights to a 3 x 1 matrix, with values in the range -1 to 1
+            and mean 0
+        '''
         self.synaptic_weights = random.random((3, 1)) - 1
 
+
     def __tanh(self, x) :
+        '''
+            The derivative of the tanh function.
+            This is the gradient of the tanh curve.
+            It indicates how confident we are about the existing weight.
+        '''
         return numpy.tanh(x)
 
+
     def __tanh_derivative(self, x) :
+        '''
+            The tanh function, which describes an S shaped curve.
+            We pass the weighted sum of the inputs through this function to normalise them 
+            between -1 and 1.
+        '''
         t = (numpy.exp(x) - numpy.exp(-x)) / (numpy.exp(x) + numpy.exp(-x))
         return 1 - t**2
 
+
     def train(self, training_inputs, training_outputs, number_of_training_iterations) :
-        # We train the neural network through a process of trial and error.
-        # Adjusting the synaptic weights each time.
+        '''
+            We train the neural network through the process of trail & errors.
+            Adjusting synaptic weights each time.
+        '''
         for _ in range(number_of_training_iterations) :
             output = self.think(training_inputs)
             errors = training_outputs - output
+            '''
+                Multiply the error by the input and again by the gradient of the Sigmoid curve.
+                This means less confident weights are adjusted more.
+                This means inputs, which are zero, do not cause changes to the weights.
+            '''
             adjust = dot(training_inputs.T, errors * self.__tanh_derivative(output))
             self.synaptic_weights += adjust 
+
 
     def think(self, inputs) :
         return self.__tanh(dot(inputs, self.synaptic_weights))
@@ -66,7 +92,6 @@ if __name__ == '__main__' :
     print(neural_net.think(array([1, 0, 0])))
 
 
-# $ Alienware-Aw27 👘
 # $ python neural-net-tanh.py 
 # Random starting synaptic weights :
 # [[-0.5640051 ] 
