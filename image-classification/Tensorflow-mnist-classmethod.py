@@ -41,10 +41,10 @@ x_train, x_test = x_train.reshape([-1, num_features]), x_test.reshape([-1, num_f
 # print(x_train[0].shape)
 # (784,)
 
-# ------------------------------- Normalize images values from [0, 255] to [0, 1] ------------------------------
+# ------------------------------- Normalize images values from [0, 255] to [0, 1] -------------------------------
 x_train, x_test = x_train/255., x_test / 255.
 
-# ------------------------------- Use atf.data API to shuffle and batch data. ----------------------------------
+# --------------------------------- Use tf.data API to shuffle and batch data. ----------------------------------
 train_data = tf.data.Dataset.from_tensor_slices((x_train, y_train))
 
 train_data = train_data.repeat().shuffle(5000).batch(batch_size).prefetch(1)
