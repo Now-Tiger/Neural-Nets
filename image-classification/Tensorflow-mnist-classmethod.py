@@ -36,7 +36,7 @@ x_train, x_test = np.array(x_train, np.float32), np.array(x_test, np.float32)
 x_train, x_test = x_train.reshape([-1, num_features]), x_test.reshape([-1, num_features])
 
 # print(x_train.shape)
-# (60000, 784)S
+# (60000, 784)
 
 # print(x_train[0].shape)
 # (784,)
