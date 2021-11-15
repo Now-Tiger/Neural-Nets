@@ -1,0 +1,55 @@
+
+@author : Swapnil Narwade
+date    : 1/11/21
+
+
+1. Tensor :
+    - n-dimensional array
+    - A Tensor is a generalization of vectors and metrics and is easily understood as multidimensional array. 
+    - A tensor represents a (possibly multi-dimensional) array of numerical values. With one axis, a tensor 
+      corresponds (in math) to a vector. With two axes, a tensor corresponds to a matrix. Tensors with more 
+      than two axes do not have special mathematical names.
+
+
+* General maths - behind the scene :
+    - In mathematical notation, we would denote such a unary scalar operator (taking one input) by the signature  f:R→R . 
+    - This just means that the function is mapping from any real number ( R ) onto another. 
+    - Likewise, we denote a binary scalar operator (taking two real inputs, and yielding one output) by the signature  f:R,R→R . 
+    - Given any two vectors  u  and  v  of the same shape, and a binary operator  f , we can produce a vector  c=F(u,v)  
+      by setting  ci←f(ui,vi)  for all  i , where  ci,ui , and  vi  are the  ith  elements of vectors  c,u , and  v . 
+    - Here, we produced the vector-valued  F:Rd,Rd→Rd  by lifting the scalar function to an elementwise vector operation.
+
+
+2. Linear Regression :
+    - Regression refers to a set of methods for modeling the relationship between one or more independent variables and a 
+      dependent variable. 
+    - In the natural sciences and social sciences, the purpose of regression is most often to characterize the relationship 
+      between the inputs and outputs. 
+    - Machine learning, on the other hand, is most often concerned with prediction.
+
+    - Regression problems pop up whenever we want to predict a numerical value. 
+      Common examples include predicting prices (of homes, stocks, etc.), predicting length of stay (for patients in the hospital), 
+      demand forecasting (for retail sales), among countless others.
+
+    - the data corresponding to one sale(in house prices prediction case): is called an example (or data point, data instance, sample).
+    
+    - price = warea⋅area + wage⋅age + b.
+    
+    - warea  and wage are called weights, and b is called a bias (also called an offset or intercept)
+
+
+3. Overfitting : 
+    - Overfitting is referred to a model that models training data too well.
+
+    - Overfitting occurs when you fit the model too closely to the particularities of training data set and obtain the model that 
+      that works well on the training data but does not able generalization well on new/unseen data.
+    
+    - Meaning : The noise and random fluctuations in the training data set is picked up and learning as concept by the model.
+                The problem's that these concepts does not apply to new/unseen data and negatively impacts the model's ability to 
+                generalize.
+
+    - Overfitting more likely to occur with nonparametric and nonlinear models that have more flexibility to learn target function.
+
+    * Ex. :     Decision trees are nonparametric which are very flexible and are subject to overfitting the training data.
+                This problem can be addressed by pruning the Decision tree after it has learned in order to remove some of the details 
+                it has pickd up. 
