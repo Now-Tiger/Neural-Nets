@@ -16,8 +16,7 @@ if __name__ == '__main__' :
     pred = NeuralNetwork(input, weight)
     print(round(pred, 2))
 
-
-
+    
 # ----------- Neural network with multiple inputs ---------------------
 
 weights = [0.1, 0.2, 0]
