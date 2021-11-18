@@ -21,4 +21,3 @@ Class : TYBCA
     in the subsequent layers. You'd end up with a different set of parameters, but the value of the cost function can't be distinguished by 
     (basically you just moved a node, to another place, but kept all the inputs/outputs the same).
     
-    
