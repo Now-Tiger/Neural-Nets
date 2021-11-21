@@ -36,7 +36,8 @@ To answer such a question we have to understand one concept called  'Capacity of
 
 1.2.1  Width :
 * The number of nodes in a layer is referred to as the width of the network.
-* In theory, a network with enough nodes in a single hidden layer network can learn to approximate any mapping function, although in practice we don't know how many nodes are sufficient or how to train such a model.
+* In theory, a network with enough nodes in a single hidden layer network can learn to approximate any mapping function, although in practice we don't 
+  know how many nodes are sufficient or how to train such a model.
 
 
 
@@ -44,9 +45,12 @@ To answer such a question we have to understand one concept called  'Capacity of
 1.2.2  Depth :
 * The number of layers in a neural network is referred to as the depth of the network.
 * Increasing depth, increasing the capacity of the model.
-* Training deep models, e.g those with many hidden layers can be computationally more efficient than training a single layer network with a vast number of units.
+* Training deep models, e.g those with many hidden layers can be computationally more efficient than training a single layer network with a 
+  vast number of units.
 * By adding more hidden layer and more units within the layers, a deep network can represent a function of increasing complexity.
  
 * Solution to above : Modern Deep Learning methods :
-* Traditionally it has been challenging to train neural network models with more than few hidden layers, due to problems such as vanishing gradient descent.
-* 'More recently there is an advancement in deep learning modern methodologies which allows us to train deep neural models, with large depths, and can achieve an impressive performance over the challenging problems in a wide range of domains.'
+* Traditionally it has been challenging to train neural network models with more than few hidden layers, due to problems such as vanishing gradient 
+  descent.
+* 'More recently there is an advancement in deep learning modern methodologies which allows us to train deep neural models, with large depths, and 
+  can achieve an impressive performance over the challenging problems in a wide range of domains.'
