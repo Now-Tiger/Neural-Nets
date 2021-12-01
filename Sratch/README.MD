@@ -1,0 +1,2 @@
+-- In this repository we will try to understand neural network concepts from scratch.<br>
+-- An Interview centric approach.
