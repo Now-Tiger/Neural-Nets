@@ -54,7 +54,7 @@ p_dn = neuralNet(input, weight + lr)
 error_dn = (p_dn - true) ** 2
 print(f"updated error : {round(error_dn, 3)}")  # 0.004  <- best updated
 
-# $ pypy3 ch3-gradient-descent.py 
+# $ pypy3 error-update.py 
 # error : 0.303
 # ---------------      
 # error : 0.023        
