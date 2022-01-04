@@ -35,9 +35,10 @@
 -------------------------------------------------------------------------------------------------------------------------
 
 past_velocity = 0
-momentum = .1					# Constant momentum factor
-while loss > .01 :
-    w, loss, gradient = get_current_parameters() 		# Optimization loop
+momentum = .1                   # Constant momentum factor
+
+while loss > .01 :              # Optimization loop
+    w, loss, gradient = get_current_parameters() 		
     velocity = past_velocity * momentum + learning_rate * gradient
     w = w + momentum * velocity - learning_rate * gradient
     past_velocity = velocity
