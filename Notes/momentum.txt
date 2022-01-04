@@ -1,0 +1,46 @@
+=========================================
+    Momentum in Gradient Descent.
+=========================================
+
+1. What is momentum in gradient descent ?
+
+-   Lets answer this question step by step while we try to understanding why we one need momentum 
+    function/functionality in gradient descent optimization.
+
+-   After reading books on deep learning you might come to know that momentum is a "Gradient Descent Optimizer".
+-   Momentum addresses two issues with SGD :
+    1.  Convergence speed
+    2.  Local minima
+
+-   We know that it is intuitively important to pick a reasonable value for step(learning rate) factor.
+-   If it's too small, the GD down the curve will take many iterations, and it could get stuck in a local
+    minima.
+-   If step is too large, your updates may end up taking you to completely random locations on the curve.
+
+-   From one of the many ways to deal with such issues is to understand momentum and make efficient use in deep 
+    learning models.
+
+-   You can avoid issues mentioned above by using "Momentum", which draws inspiration from physics. A useful mental
+    image here is to think of the optimization process as small ball rolling down the loss curve. If it has enough
+    momentum, the ball won't get stuck in a ravine and will end up at the global minima/minimum.
+
+-   "Momentum is implemented by moving the ball at each step based on the current slope value(current accelartion)
+    but also on the current velocity(resulting from past velocity)."
+
+-   In practice, this means updating the parameter 'w' based not only on current gradient value but also on the previous
+    parameter update.
+
+-   Naive implementation of above context :
+
+-------------------------------------------------------------------------------------------------------------------------
+
+past_velocity = 0
+momentum = .1					# Constant momentum factor
+while loss > .01 :
+    w, loss, gradient = get_current_parameters() 		# Optimization loop
+    velocity = past_velocity * momentum + learning_rate * gradient
+    w = w + momentum * velocity - learning_rate * gradient
+    past_velocity = velocity
+    update_parameter(w)
+ 
+------------------------------------------------------------------------------------------------------------------------- 
