@@ -18,7 +18,7 @@ actuals = [2, 4, 6, 8, 10]
 predicted = [.1, 2, 1, 3, 2.4]
 print(mean_squared_error(actuals, predicted)) 
 
-
+# --------------------------------------------------------------------
 
 # 2. Cross Entropy 
 #    2.1. Binary Cross Entropy
