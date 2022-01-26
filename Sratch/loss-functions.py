@@ -28,7 +28,7 @@ def binary_cross_entropy(actuals: List[int],
     sum_score: float = .0
     for i in range(len(actuals)) :
         sum_score += actuals[i] * math.log(1e-15 + predicted[i])
-    mean_sum_score = 1.0/len(actuals) * sum_score
+    mean_sum_score: float = 1.0/len(actuals) * sum_score
     return -mean_sum_score
 
 actuals = [1, 0, 0, 1, 0, 0]
@@ -40,9 +40,9 @@ print(binary_cross_entropy(actuals, predicted))
 
 def categorical_cross_entropy(actuals: List[int], 
                               predicted: List[int | float]) -> None :
-    sum_score = .0
+    sum_score: float = .0
     for i in range(len(actuals)) :
         for j in range(len(actuals)) :
             sum_score += actuals[i][j] * math.log(1e-15 + predicted[i][j])
-    mean_sum_score = 1.0/len(actuals) * sum_score
+    mean_sum_score: float = 1.0/len(actuals) * sum_score
     return -mean_sum_score
