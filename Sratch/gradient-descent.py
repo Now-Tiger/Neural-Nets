@@ -7,8 +7,9 @@
 weight = .5
 input = .5
 goal_pred = .8
+EPOCHS = 30
 
-for iteration in range(30) :
+for iteration in range(EPOCHS) :
     prediction = input * weight
     error = (prediction - goal_pred) ** 2
     direction_and_amount = (prediction - goal_pred) * input
