@@ -5,10 +5,11 @@
 weight = .5
 input = .5
 target = .8
+EPOCHS = 1101
 
 step_amount = .001  # <= How much to move weights each iteration
 
-for iteration in range(1101) :      # <= repeat the learning many times so that
+for iteration in range(EPOCHS) :      # <= repeat the learning many times so that
                                     # error can keep getting smaller
     prediction = input * weight 
     error = (prediction - target) ** 2
