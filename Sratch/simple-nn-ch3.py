@@ -14,7 +14,6 @@ input = num_toes[0]
 print(round(neuralNet(input, weight), 3),'%')
 
 # ---------------------------------------------------------
-print('-'*6)
 
 # Making predictions using multiple inputs
 
@@ -47,11 +46,8 @@ nfans = [1.2, 1.3, 0.5, 1.0]
 input = [toes[0], wlrec[0], nfans[0]]
 print(round(net(input, weights), 3),'%')
 
-print('-'*6)
-
-
 # -----------------------------------------------------------
-#
+
 # Numpy code 
 
 import numpy as np
