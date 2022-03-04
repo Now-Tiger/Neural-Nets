@@ -1,4 +1,4 @@
-
+#!/usr/bin/env/ 'tensor': conda
 # ---------------------------- Predictions on Mnist dataset : buidling neural nets : Class Methods ----------------------------
 
 from __future__ import absolute_import, division, print_function
@@ -49,7 +49,6 @@ train_data = tf.data.Dataset.from_tensor_slices((x_train, y_train))
 
 train_data = train_data.repeat().shuffle(5000).batch(batch_size).prefetch(1)
 
-
 # ---------------------------------------- Create Tensorflow Model -----------------------------------------------
 
 class NeuralNet(Model) :
@@ -72,7 +71,6 @@ class NeuralNet(Model) :
 # Build neural network :
 neural_net = NeuralNet()
 
-
 # --------------------------------------------- cross-Entropy Loss ----------------------------------------------
 
 # Note : This will apply softmax to logits.
@@ -83,7 +81,6 @@ def cross_entropy_loss(x, y) :
     loss = tf.nn.sparse_softmax_cross_entropy_with_logits(labels = y, logits = x)
     # Average loss across the batch :
     return tf.reduce_mean(loss)
-
 
 # --------------------------------------------- Accuracy Metrix --------------------------------------------------
 
@@ -111,7 +108,6 @@ def run_optimization(x, y) :
     # Update W and b following gradients 
     optimizer.apply_gradients(zip(gradients, trainable_variables))
 
-
 # --------------------------------------------- Training ----------------------------------------------------- ---
 
 for step, (batch_x, batch_y) in enumerate(train_data.take(training_steps), 1) :
@@ -122,7 +118,6 @@ for step, (batch_x, batch_y) in enumerate(train_data.take(training_steps), 1) :
         loss = cross_entropy_loss(pred, batch_y)
         acc = accuracy(pred, batch_y)
         print(f'Step : {step}, loss : {loss}, accuracy : {acc}')
-
 
 # ------------------------------------- Test model on validation set ---------------------------------------------
 
