@@ -43,10 +43,10 @@ if __name__ == '__main__' :
     gd_without_alpha(input, goal_pred, EPOCH)
     # This produces overshooting
     
-    # print("-"*50)
+    print("-"*50)
     
-    # weight = .0
-    # target = .8
-    # input = 2
-    # alpha = .1 # learning rate 
-    # gd_with_alpha(input, target, 20, alpha)
+    weight = .0
+    target = .8
+    input = 2
+    alpha = .1    # learning rate 
+    gd_with_alpha(input, target, 20, alpha)
