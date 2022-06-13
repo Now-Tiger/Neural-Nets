@@ -18,11 +18,6 @@ data = pd.DataFrame({'tweet': text})
 data['tweet'].apply(lambda x: str(TextBlob(x).correct()))
 print(data)
 
-# :!python correct-spellings.py 
-#                                     tweet
-# 0                     Introduction to NLP
-# 1   It is likely to be useful, to people
-# 2  Machine learning is the new electrcity
-# 3                     R is good langauage
-# 4                        I like this book
-# 5             I want more books like this
+# Doesn't correct any incorrect spellings.
+# Dont use textblob for spell correction.
+# There's a library called 'pattern en' which seems far better than nltk.
