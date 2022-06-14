@@ -7,28 +7,51 @@ When will L1 regularization work better than L2 and vice versa?
 
 How to decide which regularization (L1 or L2) to use?
 
-What is your goal? Both can improve model generalization by penalizing coefficients, since features with opposite relationship to the outcome can "offset" each other (a large positive value is counterbalanced by a large negative value). This can arise when there are collinear features. Small changes in the data can result in dramatically different parameter estimates (high variance estimates). Penalization can restrain both coefficients to be smaller. (Hastie et al, Elements of Statistical Learning, 2nd edition, p. 63)
+What is your goal? Both can improve model generalization by penalizing coefficients, since features with opposite relationship to the outcome 
+can "offset" each other (a large positive value is counterbalanced by a large negative value). 
+This can arise when there are collinear features. Small changes in the data can result in dramatically different parameter estimates (high variance estimates).
+Penalization can restrain both coefficients to be smaller. (Hastie et al, Elements of Statistical Learning, 2nd edition, p. 63)
 
 What are the pros & cons of each of L1 / L2 regularization?
 
-L1 regularization can address the multicollinearity problem by constraining the coefficient norm and pinning some coefficient values to 0. Computationally, Lasso regression (regression with an L1 penalty) is a quadratic program which requires some special tools to solve. When you have more features than observations N, lasso will keep at most N non-zero coefficients. Depending on context, that might not be what you want.
+L1 regularization can address the multicollinearity problem by constraining the coefficient norm and pinning some coefficient values to 0. 
+Computationally, Lasso regression (regression with an L1 penalty) is a quadratic program which requires some special tools to solve. 
+When you have more features than observations N, lasso will keep at most N non-zero coefficients. Depending on context, that might not be what you want.
 
-L1 regularization is sometimes used as a feature selection method. Suppose you have some kind of hard cap on the number of features you can use (because data collection for all features is expensive, or you have tight engineering constraints on how many values you can store, etc.). You can try to tune the L1 penalty to hit your desired number of non-zero features.
+L1 regularization is sometimes used as a feature selection method. 
+Suppose you have some kind of hard cap on the number of features you can use (because data collection for all features is expensive, or you have tight engineering 
+constraints on how many values you can store, etc.). 
+You can try to tune the L1 penalty to hit your desired number of non-zero features.
 
-L2 regularization can address the multicollinearity problem by constraining the coefficient norm and keeping all the variables. It's unlikely to estimate a coefficient to be exactly 0. This isn't necessarily a drawback, unless a sparse coefficient vector is important for some reason.
+L2 regularization can address the multicollinearity problem by constraining the coefficient norm and keeping all the variables. 
+It's unlikely to estimate a coefficient to be exactly 0. This isn't necessarily a drawback, unless a sparse coefficient vector is important for some reason.
 
-In the regression setting, it's the "classic" solution to the problem of estimating a regression with more features than observations. L2 regularization can estimate a coefficient for each feature even if there are more features than observations (indeed, this was the original motivation for "ridge regression").
+In the regression setting, it's the "classic" solution to the problem of estimating a regression with more features than observations. 
+L2 regularization can estimate a coefficient for each feature even if there are more features than observations (indeed, this was the original motivation 
+for "ridge regression").
 
-As an alternative, elastic net allows L1 and L2 regularization as special cases. A typical use-case in for a data scientist in industry is that you just want to pick the best model, but don't necessarily care if it's penalized using L1, L2 or both. Elastic net is nice in situations like these.
+As an alternative, elastic net allows L1 and L2 regularization as special cases. 
+A typical use-case in for a data scientist in industry is that you just want to pick the best model, but don't necessarily care if it's penalized using 
+L1, L2 or both. Elastic net is nice in situations like these.
+
 
 Is it recommended to 1st do feature selection using L1 & then apply L2 on these selected variables?
 
-I'm not familiar with a publication proposing an L1-then-L2 pipeline, but this is probably just ignorance on my part. There doesn't seem to be anything wrong with it. I'd conduct a literature review.
+I'm not familiar with a publication proposing an L1-then-L2 pipeline, but this is probably just ignorance on my part. 
+There doesn't seem to be anything wrong with it. I'd conduct a literature review.
 
-A few examples of similar "phased" pipelines exist. One is the "relaxed lasso", which applies lasso regression twice, once to down-select from a large group to a small group of features, and second to estimate coefficients for use in a model. This uses cross-validation at each step to choose the magnitude of the penalty. The reasoning is that in the first step, you cross-validate and will likely choose a large penalty to screen out irrelevant predictors; in the second step, you cross-validate and will likely pick a smaller penalty (and hence larger coefficients). This is mentioned briefly in Elements of Statistical Learning with a citation to Nicolai Meinshausen ("Relaxed Lasso." Computational Statistics & Data Analysis Volume 52, Issue 1, 15 September 2007, pp 374-393).
+A few examples of similar "phased" pipelines exist. One is the "relaxed lasso", which applies lasso regression twice, once to down-select from a large group 
+to a small group of features, and second to estimate coefficients for use in a model. 
+This uses cross-validation at each step to choose the magnitude of the penalty. 
+The reasoning is that in the first step, you cross-validate and will likely choose a large penalty to screen out irrelevant predictors; in the second step, 
+you cross-validate and will likely pick a smaller penalty (and hence larger coefficients). This is mentioned briefly in Elements of Statistical Learning with
+a citation to Nicolai Meinshausen ("Relaxed Lasso." Computational Statistics & Data Analysis Volume 52, Issue 1, 15 September 2007, pp 374-393).
 
-User @amoeba also suggests an L1-then-OLS pipeline; this might be nice because it only has 1 hyperparameter for the magnitude of the L1 penalty, so less fiddling would be required.
+User suggests an L1-then-OLS pipeline; this might be nice because it only has 1 hyperparameter for the magnitude of the L1 penalty, so less fiddling would be required.
 
-One problem that can arise with any "phased" analysis pipeline (that is, a pipeline which does some steps, and then some other steps separately) is that there's no "visibility" between those different phases (algorithms applied at each step). This means that one process inherits any data snooping that happened at the previous steps. This effect is not negligible; poorly-conceived modeling can result in garbage models.
+One problem that can arise with any "phased" analysis pipeline (that is, a pipeline which does some steps, and then some other steps separately) is that 
+there's no "visibility" between those different phases (algorithms applied at each step). 
+This means that one process inherits any data snooping that happened at the previous steps. This effect is not negligible; poorly-conceived modeling can 
+result in garbage models.
 
 One way to hedge against data-snooping side-effects is to cross-validate all of your choices. However, the increased computational costs can be prohibitive, depending on the scale of the data and the complexity of each step.
