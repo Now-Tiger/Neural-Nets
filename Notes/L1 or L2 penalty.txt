@@ -54,4 +54,5 @@ there's no "visibility" between those different phases (algorithms applied at ea
 This means that one process inherits any data snooping that happened at the previous steps. This effect is not negligible; poorly-conceived modeling can 
 result in garbage models.
 
-One way to hedge against data-snooping side-effects is to cross-validate all of your choices. However, the increased computational costs can be prohibitive, depending on the scale of the data and the complexity of each step.
+One way to hedge against data-snooping side-effects is to cross-validate all of your choices. However, the increased computational costs can be 
+prohibitive, depending on the scale of the data and the complexity of each step.
