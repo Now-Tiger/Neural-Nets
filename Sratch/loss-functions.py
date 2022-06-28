@@ -21,7 +21,7 @@ def mean_squared_error(actuals: np.ndarray, predicted: np.ndarray) -> None :
     sum_square_error: float = .0
     for i in range(len(actuals)) :
         sum_square_error += (actuals[i] - predicted[i]) ** 2
-    mean_square_error: float = 1.0/len(actuals) * sum_square_error
+    mean_square_error = sum_square_error / float(len(actuals)) 
     return np.sqrt(mean_square_error)
 
 # --------------------------------------------------------------------
@@ -32,7 +32,7 @@ def binary_cross_entropy(actuals: np.ndarray, predicted: np.ndarray) -> None :
     sum_score: float = .0
     for i in range(len(actuals)) :
         sum_score += actuals[i] * math.log(1e-15 + predicted[i])
-    mean_sum_score: float = 1.0/len(actuals) * sum_score
+    mean_sum_score = sum_score / float(len(actuals))
     return -mean_sum_score
 
 # -------------------------------------------------------------------- 
@@ -43,7 +43,7 @@ def categorical_cross_entropy(actuals: np.ndarray, predicted: np.ndarray) -> Non
     for i in range(len(actuals)) :
         for j in range(len(actuals)) :
             sum_score += actuals[i][j] * math.log(1e-15 + predicted[i][j])
-    mean_sum_score: float = 1.0/len(actuals) * sum_score
+    mean_sum_score = sum_score / float(len(actuals)) 
     return -mean_sum_score
  
 
