@@ -1,4 +1,5 @@
-#!/usr/bin/ pypy3
+#!/usr/bin/ python3
+# -*- coding: utf-8 -*-
 
 from __future__ import annotations
 from typing import List
