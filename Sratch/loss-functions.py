@@ -5,18 +5,28 @@ from typing import List
 import numpy as np
 import math
 
-# 1. Mean Squared Error (MSE) 
+# 1. Mean Absolute Error (MAE)
+def mean_absolute_error(actuals: np.ndarray, predicted: np.ndarray) -> float:
+    sums_error = .0
+    for i in range(len(actuals)):
+        sums_error += np.abs(predicted[i] - actuals[i])
+    res = sums_error / float(len(actuals))
+    return res
+
+# --------------------------------------------------------------------
+
+# 2. Mean Squared Error (MSE) 
 def mean_squared_error(actuals: np.ndarray, predicted: np.ndarray) -> None :
     sum_square_error: float = .0
     for i in range(len(actuals)) :
         sum_square_error += (actuals[i] - predicted[i]) ** 2
     mean_square_error: float = 1.0/len(actuals) * sum_square_error
-    return mean_square_error 
+    return np.sqrt(mean_square_error)
 
 # --------------------------------------------------------------------
 
-# 2. Cross Entropy 
-#   2.1. Binary Cross Entropy
+# 3. Cross Entropy 
+# Binary Cross Entropy
 def binary_cross_entropy(actuals: np.ndarray, predicted: np.ndarray) -> None : 
     sum_score: float = .0
     for i in range(len(actuals)) :
@@ -24,8 +34,9 @@ def binary_cross_entropy(actuals: np.ndarray, predicted: np.ndarray) -> None :
     mean_sum_score: float = 1.0/len(actuals) * sum_score
     return -mean_sum_score
 
+# -------------------------------------------------------------------- 
   
-#   2.2 Categorical Cross Entropy
+# 4. Categorical Cross Entropy
 def categorical_cross_entropy(actuals: np.ndarray, predicted: np.ndarray) -> None :
     sum_score: float = .0
     for i in range(len(actuals)) :
@@ -39,7 +50,8 @@ if __name__ == "__main__" :
   # RMSE :
   actuals = np.array([2, 4, 6, 8, 10])
   predicted = np.array([.1, 2, 1, 3, 2.4])
-  print(mean_squared_error(actuals, predicted))
+  print(f"MAE: {mean_absolute_error(actuals, predicted}")
+  print(f"RMSE: {mean_squared_error(actuals, predicted)}")
   
   # Binary Cross Entropy
   actuals = np.array([1, 0, 0, 1, 0, 0])
