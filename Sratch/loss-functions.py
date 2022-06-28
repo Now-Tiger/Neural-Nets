@@ -17,7 +17,7 @@ def mean_absolute_error(actuals: np.ndarray, predicted: np.ndarray) -> float:
 # --------------------------------------------------------------------
 
 # 2. Mean Squared Error (MSE) 
-def mean_squared_error(actuals: np.ndarray, predicted: np.ndarray) -> None :
+def mean_squared_error(actuals: np.ndarray, predicted: np.ndarray) -> float :
     sum_square_error: float = .0
     for i in range(len(actuals)) :
         sum_square_error += (actuals[i] - predicted[i]) ** 2
@@ -28,7 +28,7 @@ def mean_squared_error(actuals: np.ndarray, predicted: np.ndarray) -> None :
 
 # 3. Cross Entropy 
 # Binary Cross Entropy
-def binary_cross_entropy(actuals: np.ndarray, predicted: np.ndarray) -> None : 
+def binary_cross_entropy(actuals: np.ndarray, predicted: np.ndarray) -> float : 
     sum_score: float = .0
     for i in range(len(actuals)) :
         sum_score += actuals[i] * math.log(1e-15 + predicted[i])
@@ -38,7 +38,7 @@ def binary_cross_entropy(actuals: np.ndarray, predicted: np.ndarray) -> None :
 # -------------------------------------------------------------------- 
   
 # 4. Categorical Cross Entropy
-def categorical_cross_entropy(actuals: np.ndarray, predicted: np.ndarray) -> None :
+def categorical_cross_entropy(actuals: np.ndarray, predicted: np.ndarray) -> float :
     sum_score: float = .0
     for i in range(len(actuals)) :
         for j in range(len(actuals)) :
