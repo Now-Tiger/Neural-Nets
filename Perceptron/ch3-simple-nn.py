@@ -2,19 +2,9 @@
 
 # Simple neural network :
 
-weight = .1
-
 def NeuralNetwork(input, weight) :
     prediction = input * weight 
     return prediction
-
-# ---------------------------------
-
-if __name__ == '__main__' :
-    number_of_toes = [8.5, 9.5, 10, 9]
-    input = number_of_toes[0]    # 8.5
-    pred = NeuralNetwork(input, weight)
-    print(round(pred, 2))
 
     
 # ----------- Neural network with multiple inputs ---------------------
@@ -34,6 +24,14 @@ def neural_network(input, weights) :
     return round(pred, 2)
 
 if __name__ == '__main__' :
+    # single input for simple neural network     
+    weight = .1
+    number_of_toes = [8.5, 9.5, 10, 9]
+    input = number_of_toes[0]    # 8.5
+    pred = NeuralNetwork(input, weight)
+    print(round(pred, 2))
+    # -----------------------------------
+    # multiple inputs 
     toes = [8.5, 9.5, 9.9, 9.0]
     wlrec = [0.65, 0.8, 0.8, 0.9]
     nfans = [1.2, 1.3, 0.5, 1.0]
