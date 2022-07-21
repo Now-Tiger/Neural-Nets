@@ -1,7 +1,7 @@
 #!/usr/bin/env/ conda:'tensor'
 # -*- coding: utf-8 -*-
 
-# custom class for using tensorflow Linear Regression with tf.keras.Model
+# custom class for Linear Regression using tensorflow
 import os
 import time
 import tensorflow as tf
